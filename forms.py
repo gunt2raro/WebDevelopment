@@ -1,15 +1,15 @@
 from django import forms
-from .models import Menu
+from .models import Parentitem
 
-class MenuForm( forms.ModelForm ) :
+class ParentitemForm( forms.ModelForm ) :
     
     description = forms.CharField(widget=forms.Textarea)
     
     class Meta : 
         
-        model = Menu
-        fields = [ 'id', 'position', 'name', 'description' ]
-       
+        model = Parentitem
+        fields = [ 'name', 'position', 'description', 'url' ]
+    
     def clean_description( self ) :
         
         description = self.cleaned_data.get( 'description' )
@@ -19,7 +19,7 @@ class MenuForm( forms.ModelForm ) :
             raise forms.ValidationError( 'Please add a description to the menu item.' )
         
         return description
-        
+    
     def clean_name( self ) :
         
         name = self.cleaned_data.get( 'name' )

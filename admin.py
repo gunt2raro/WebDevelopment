@@ -1,14 +1,12 @@
 from django.contrib import admin
-from .forms import MenuForm
-from .models import Menu
+from .forms import ParentitemForm
+from .models import Parentitem
 
 #ManuForm
 #The Menu Item Admin
-class MenuAdmin( admin.ModelAdmin ) :
+class ParentitemAdmin( admin.ModelAdmin ) :
     
-    list_display = [ "id", "__unicode__", "timestamp", "updated", "position" ]
-    form = MenuForm
+    list_display = [ "__unicode__", "timestamp", "updated" ]
+    form = ParentitemForm
     
-    
-    
-admin.site.register( Menu, MenuAdmin )
+admin.site.register( Parentitem, ParentitemAdmin )
