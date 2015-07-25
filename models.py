@@ -4,10 +4,10 @@ from django.db import models
 class Parentitem( models.Model ) : 
     
     #parameters
-    name = models.CharField( max_length=50, null = False, unique=True )#the name of the menu item
+    name = models.CharField( max_length=50 )#the name of the menu item
     description = models.CharField( max_length = 200 )#description of the menu item
-    url = models.CharField( max_length=200, null = True, default='url' )#url in case it needs an especific url
-    position = models.IntegerField()#date of position on the menu
+    url = models.CharField( max_length=200, default = True )#url in case it needs an especific url
+    position = models.IntegerField( default = 0 )#date of position on the menu
     timestamp = models.DateTimeField( auto_now_add = True, auto_now = False )#date uploaded
     updated = models.DateTimeField( auto_now_add = False, auto_now = True )#date updated
     
@@ -21,13 +21,13 @@ class Parentitem( models.Model ) :
 class Childitem( models.Model ) :
     
     #parameters
-    name = models.CharField( max_length = 50, null = False, unique = True )
-    description = models.CharField( max_length = 200, null = True, default = '' )
-    url = models.CharField( max_length = 200, null = True, default = 'url' )
-    position = models.IntegerField( null = True, default = 0 )
+    name = models.CharField( max_length = 50 )
+    description = models.CharField( max_length = 200 )
+    url = models.CharField( max_length = 200, default = 'url' )
+    position = models.IntegerField( default = 0 )
     timestamp = models.DateTimeField( auto_now_add = True, auto_now = False )#date uploaded
     updated = models.DateTimeField( auto_now_add = False, auto_now = True )#date updated
-    
+    parentitem = models.ForeignKey( Parentitem, default=1 )
     
     #unicode return
     def __unicode__( self ) :

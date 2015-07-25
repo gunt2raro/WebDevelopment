@@ -7,7 +7,7 @@ def home( request ) :
     context = {
         
         'title' : 'Home',
-        'menu_gen' : '',#Utils().create_menu( Parentitem.objects.all(), 'Home' )
+        'menu_gen' : Utils().create_menu( Parentitem.objects.all(), 'Home' )
     
     }
 
@@ -34,3 +34,58 @@ def design( request ) :
     }
     
     return render( request, "design/index.html" )
+    
+def marketing( request ) :
+    
+    context = {
+    
+        'title' : 'Marketing',
+        'menu_gen' : ''#Utils().create_menu( Parentitem.objects.all(), 'Design' )
+        
+    }
+    
+    return render( request, "marketing/index.html" )
+    
+def portfolio( request ) :
+    
+    context = {
+    
+        'title' : 'Portfolio',
+        'menu_gen' : ''#Utils().create_menu( Parentitem.objects.all(), 'Design' )
+        
+    }
+    
+    return render( request, "portfolio/index.html" )
+    
+def products( request ) :
+    
+    context = {
+    
+        'title' : 'Products',
+        'menu_gen' : ''#Utils().create_menu( Parentitem.objects.all(), 'Design' )
+        
+    }
+    
+    return render( request, "products/index.html" )
+    
+def about( request ) :
+    
+    context = {
+    
+        'title' : 'About Us',
+        'menu_gen' : ''#Utils().create_menu( Parentitem.objects.all(), 'Design' )
+        
+    }
+    
+    return render( request, "about/index.html" )
+    
+def contact( request ) :
+    
+    context = {
+    
+        'title' : 'Contact',
+        'menu_gen' : ''#Utils().create_menu( Parentitem.objects.all(), 'Design' )
+        
+    }
+    
+    return render( request, "contact/index.html" )

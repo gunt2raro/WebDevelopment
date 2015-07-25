@@ -11,10 +11,10 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AlterField(
-            model_name='menu',
-            name='url',
-            field=models.CharField(max_length=200, null=True),
+        migrations.AddField(
+            model_name='childitem',
+            name='parentitem',
+            field=models.ForeignKey(default=1, to='WebDevelopment.Parentitem'),
             preserve_default=True,
         ),
     ]
