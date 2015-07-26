@@ -15,7 +15,8 @@ class Utils :
     @staticmethod
     def create_menu( items, active ) : 
         
-        str_gen = []
+        str_gen = []     
+        s = HTMLParser.HTMLParser( )
         
         if items :
             
@@ -55,9 +56,7 @@ class Utils :
                     str_gen.append( '</a>' )
                     
                 str_gen.append( '</li> <!-- dropdown -->' )
-            
-            s = HTMLParser.HTMLParser( )
-        
+       
         return s.unescape( '' . join( str_gen ) )
         
 #End of utils class
