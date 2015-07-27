@@ -16,8 +16,7 @@ class Utils :
     def create_menu( items, active ) : 
         
         str_gen = []     
-        s = HTMLParser.HTMLParser( )
-        
+         
         if items :
             
             for item in items :
@@ -27,7 +26,7 @@ class Utils :
                 if item.name == active :
                     
                     active_str = '<li class="dropdown active" >'
-            
+                
                 children =  Childitem.objects.all().filter( parentitem = item )
                 
                 str_gen.append( active_str )
@@ -57,6 +56,6 @@ class Utils :
                     
                 str_gen.append( '</li> <!-- dropdown -->' )
        
-        return s.unescape( '' . join( str_gen ) )
+        return( '' . join( str_gen ) )
         
 #End of utils class

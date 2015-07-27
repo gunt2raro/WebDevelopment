@@ -7,7 +7,8 @@ def home( request ) :
     context = {
         
         'title' : 'Home',
-        'menu_gen' : Utils().create_menu( Parentitem.objects.all(), 'Home' )
+        'subtitle' : 'You say it, we make it',
+        'menu_gen' : Utils().create_menu( Parentitem.objects.order_by( 'position' ), 'Home' )
     
     }
 
@@ -18,74 +19,103 @@ def development( request ) :
     context = {
     
         'title' : 'Development',
-        'menu_gen' : '',#Utils().create_menu( Parentitem.objects.all(), 'Development' )
-        
+        'subtitle' : 'Developers',
+        'menu_gen' : Utils().create_menu( Parentitem.objects.all(), 'Development' )
     }
 
-    return render( request, "development/index.html" )
+    return render( request, "development/index.html", context )
     
 def design( request ) :
     
     context = {
     
         'title' : 'Design',
-        'menu_gen' : ''#Utils().create_menu( Parentitem.objects.all(), 'Design' )
+        'subtitle' : 'Spectacular design',
+        'menu_gen' : Utils().create_menu( Parentitem.objects.all(), 'Design' )
         
     }
     
-    return render( request, "design/index.html" )
+    return render( request, "design/index.html", context )
     
 def marketing( request ) :
     
     context = {
     
         'title' : 'Marketing',
-        'menu_gen' : ''#Utils().create_menu( Parentitem.objects.all(), 'Design' )
+        'subtitle' : 'Be everywhere',
+        'menu_gen' : Utils().create_menu( Parentitem.objects.all(), 'Marketing' )
         
     }
     
-    return render( request, "marketing/index.html" )
+    return render( request, "marketing/index.html", context )
     
 def portfolio( request ) :
     
     context = {
     
         'title' : 'Portfolio',
-        'menu_gen' : ''#Utils().create_menu( Parentitem.objects.all(), 'Design' )
+        'subtitle' : 'Portfolio',
+        'menu_gen' : Utils().create_menu( Parentitem.objects.all(), 'Portfolio' )
         
     }
     
-    return render( request, "portfolio/index.html" )
+    return render( request, "portfolio/index.html", context )
     
 def products( request ) :
     
     context = {
     
         'title' : 'Products',
-        'menu_gen' : ''#Utils().create_menu( Parentitem.objects.all(), 'Design' )
+        'subtitle' : 'Our creations',
+        'menu_gen' : Utils().create_menu( Parentitem.objects.all(), 'Products' )
         
     }
     
-    return render( request, "products/index.html" )
+    return render( request, "products/index.html", context )
     
 def about( request ) :
     
     context = {
     
         'title' : 'About Us',
-        'menu_gen' : ''#Utils().create_menu( Parentitem.objects.all(), 'Design' )
+        'subtitle' : 'Us',
+        'menu_gen' : Utils().create_menu( Parentitem.objects.all(), 'About Us' )
         
     }
     
-    return render( request, "about/index.html" )
+    return render( request, "about/index.html", context )
     
 def contact( request ) :
     
     context = {
     
         'title' : 'Contact',
-        'menu_gen' : ''#Utils().create_menu( Parentitem.objects.all(), 'Design' )
+        'subtitle' : 'With you all the time',
+        'menu_gen' : Utils().create_menu( Parentitem.objects.all(), 'Contact' )
         
     }
     
-    return render( request, "contact/index.html" )
+    return render( request, "contact/index.html", context )
+    
+def pricing( request ) :
+    
+    context = {
+    
+        'title' : 'Pricing',
+        'subtitle' : 'Hire us in just a click',
+        'menu_gen' : Utils().create_menu( Parentitem.objects.all(), 'Pricing' )
+        
+    }
+    
+    return render( request, "pricing/index.html", context )
+    
+def coming( request ) :
+    
+    context = {
+    
+        'title' : 'Under Construction',
+        'subtitle' : 'Stay in contact with us, sorry for the inconvenience.'
+        
+    }
+    
+    return render( request, "coming/index.html", context )
